@@ -1,0 +1,29 @@
+<table border="1">
+    <thead>
+        <tr>
+            <th></th> <!-- Empty top-left corner -->
+            {% for student, name in anonimisatie.items() %}
+            <th>{{ student|e }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for name, nested_dict in lijst.items() %}
+        <tr>
+            <td>
+                {% for student, real_name in anonimisatie.items() %}
+                    {% if real_name == name %}
+                        {{ student|e }}
+                    {% endif %}
+                {% endfor %}
+            </td>
+            {% for second_name in lijst.keys() %}
+                <td>
+                {{ nested_dict.get(second_name, '/')|e }}
+                </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+

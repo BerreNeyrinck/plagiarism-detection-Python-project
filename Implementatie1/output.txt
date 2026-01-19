@@ -1,0 +1,22 @@
+
+
+<table border="1">
+    <thead>
+        <tr>
+            <th></th> <!-- Empty top-left corner -->
+            {% for key, value in lijst.items() %}
+            <th>{{ key|e }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for name, nested_dict in lijst.items() %}
+        <tr>
+            <td>{{ name|e }}</td>
+            {% for second_name in lijst.keys() %}
+                <td>{{ nested_dict.get(second_name, '/')|e }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

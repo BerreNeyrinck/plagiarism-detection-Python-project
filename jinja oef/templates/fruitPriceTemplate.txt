@@ -1,0 +1,11 @@
+
+<html>
+<dl>
+{% for key, value in market.items() %}
+    <dt>{{ key|e }}</dt>
+    <dd>{{ value|e }}</dd>
+{% endfor %}
+</dl>
+
+</html>
+ 
